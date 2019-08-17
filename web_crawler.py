@@ -12,6 +12,12 @@ html = urllib.request.urlopen(url, context=ctx).read()
 soup = BeautifulSoup(html, 'html.parser')
 
 tags = soup('span')
+soma = 0
+
 for tag in tags:
-    # print(tag.get('comments', None))
-    print(tag.get())
+    #print('TAG:',tag)
+    # print('URL:',tag.get('href', None))
+    # print('Contents:',tag.contents[0])
+    soma = soma + int(tag.contents[0])
+    # print('Attrs:',tag.attrs)
+print('soma: ', soma)
